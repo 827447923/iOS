@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <NSString>
 
-
-struct Product{
+@interface Product : NSObject{
     NSString *m_Name;
     NSString *m_NO;
     float m_Number;
@@ -21,4 +19,6 @@ struct Product{
     float m_WholesalePrice;
     NSString *m_Description;
     NSString *m_ImagePath;
-};
+}
+
+@end
