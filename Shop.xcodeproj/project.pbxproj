@@ -18,6 +18,7 @@
 		1B23E25E1D504E0400DF719D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B23E25D1D504E0400DF719D /* libsqlite3.dylib */; };
 		1B23E2641D50722700DF719D /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B23E2631D50722700DF719D /* DB.m */; };
 		1B23E2701D51A95200DF719D /* ProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B23E26F1D51A95200DF719D /* ProductTableViewController.m */; };
+		1B97C2C41D549D6E0010639A /* AddProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B97C2C31D549D6E0010639A /* AddProductViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,9 @@
 		1B23E2631D50722700DF719D /* DB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DB.m; sourceTree = "<group>"; };
 		1B23E26E1D51A95200DF719D /* ProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewController.h; sourceTree = "<group>"; };
 		1B23E26F1D51A95200DF719D /* ProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewController.m; sourceTree = "<group>"; };
+		1B97C2C21D549D6E0010639A /* AddProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductViewController.h; sourceTree = "<group>"; };
+		1B97C2C31D549D6E0010639A /* AddProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductViewController.m; sourceTree = "<group>"; };
+		1B97C2C51D54FBBE0010639A /* StructInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StructInfo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 				1B034ED91D3F53CB00861049 /* LoginViewController.h */,
 				1B034EDA1D3F53CB00861049 /* LoginViewController.m */,
 				1B034EDC1D3F53CB00861049 /* Main.storyboard */,
+				1B97C2C51D54FBBE0010639A /* StructInfo.h */,
 				1B034EDF1D3F53CB00861049 /* Assets.xcassets */,
 				1B034EE11D3F53CB00861049 /* LaunchScreen.storyboard */,
 				1B034EE41D3F53CB00861049 /* Info.plist */,
@@ -124,6 +129,8 @@
 				1B23E2631D50722700DF719D /* DB.m */,
 				1B23E26E1D51A95200DF719D /* ProductTableViewController.h */,
 				1B23E26F1D51A95200DF719D /* ProductTableViewController.m */,
+				1B97C2C21D549D6E0010639A /* AddProductViewController.h */,
+				1B97C2C31D549D6E0010639A /* AddProductViewController.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -289,6 +296,7 @@
 				1B23E2701D51A95200DF719D /* ProductTableViewController.m in Sources */,
 				1B23E2641D50722700DF719D /* DB.m in Sources */,
 				1B034ED81D3F53CB00861049 /* AppDelegate.m in Sources */,
+				1B97C2C41D549D6E0010639A /* AddProductViewController.m in Sources */,
 				1B034ED51D3F53CB00861049 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

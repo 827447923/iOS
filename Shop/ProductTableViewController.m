@@ -21,6 +21,10 @@ static NSString *operateProductCellIdentifier = @"OprateProductCellIdentifier";
     
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.tableView reloadData];
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
