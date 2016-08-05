@@ -46,7 +46,7 @@
 -(NSString*)dataFilePath{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    return [documentsDirectory stringByAppendingString:@"Shop.sqlite"];
+    return [documentsDirectory stringByAppendingPathComponent:@"Shop.sqlite"];
 }
 
 //登录查询
@@ -83,5 +83,7 @@
         return YES;
     }
 }
+
+
 
 @end

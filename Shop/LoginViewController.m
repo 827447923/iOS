@@ -12,10 +12,11 @@
 
 @interface LoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
 @property (strong,nonatomic) DB *db;
 
+@property (weak,nonatomic) UITextField *activeTextField;
 @end
 
 @implementation LoginViewController
@@ -32,6 +33,9 @@
     //test
     _nameTextField.text = @"end";
     _passwordTextField.text = @"111";
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     }
 
 
@@ -39,6 +43,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 #pragma mark - 点击Done或者空白处隐藏键盘
 - (IBAction)textFieldDoneEditing:(id)sender {
@@ -119,24 +125,59 @@
 //开始编辑输入框的时候，软键盘出现，执行此事件
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    CGRect frame = textField.frame;
-    int offset = frame.origin.y + 42 - (self.view.frame.size.height - 216.0-35.0);//键盘高度216
+    //记录已经激活的TextView
+    _activeTextField = textField;
     
-    NSTimeInterval animationDuration = 0.30f;
-    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    
-    //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
-    if(offset > 0)
-        self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
-    
-    [UIView commitAnimations];
+//    CGRect frame = textField.frame;
+//    int offset = frame.origin.y + frame.size.height     - (self.view.frame.size.height - 216.0-36.0);//键盘高度216或252
+//    
+//    NSTimeInterval animationDuration = 0.30f;
+//    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+//    [UIView setAnimationDuration:animationDuration];
+//    
+//    //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
+//    if(offset > 0)
+//        self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
+//    
+//    [UIView commitAnimations];
 }
 
 
 //输入框编辑完成以后，将视图恢复到原始状态
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    _activeTextField = nil;
+    
+//    [UIView animateWithDuration:0.3f animations:^{
+//    self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+//    }];
 }
+
+
+// keyboard出现，发出通知
+
+-(void)keyboardWillShow:(NSNotification*)notification
+{
+    //获取键盘高度
+    CGFloat kbHeight = [[[notification userInfo]objectForKey:UIKeyboardFrameBeginUserInfoKey]CGRectValue].size.height;
+    //计算文本框底部到键盘顶端的距离
+    int offset = _activeTextField.frame.origin.y+_activeTextField.frame.size.height - (self.view.frame.size.height-kbHeight);
+    //如果offset大于0，即文本框被键盘隐藏，将整个view上移
+    if(offset>0){
+        //获取键盘上升动画的时间
+    double duration = [[[notification userInfo]objectForKey:UIKeyboardAnimationDurationUserInfoKey]doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+    }
+}
+
+-(void)keyboardWillHide:(NSNotification*)notification
+{
+    double duration = [[[notification userInfo]objectForKey:UIKeyboardAnimationDurationUserInfoKey]doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        self.view.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
 @end

@@ -17,6 +17,7 @@
 		1B034EF91D3F53CB00861049 /* ShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B034EF81D3F53CB00861049 /* ShopUITests.m */; };
 		1B23E25E1D504E0400DF719D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B23E25D1D504E0400DF719D /* libsqlite3.dylib */; };
 		1B23E2641D50722700DF719D /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B23E2631D50722700DF719D /* DB.m */; };
+		1B23E2701D51A95200DF719D /* ProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B23E26F1D51A95200DF719D /* ProductTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		1B23E25D1D504E0400DF719D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		1B23E2621D50722700DF719D /* DB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB.h; sourceTree = "<group>"; };
 		1B23E2631D50722700DF719D /* DB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DB.m; sourceTree = "<group>"; };
+		1B23E26E1D51A95200DF719D /* ProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewController.h; sourceTree = "<group>"; };
+		1B23E26F1D51A95200DF719D /* ProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				1B034ED31D3F53CB00861049 /* Supporting Files */,
 				1B23E2621D50722700DF719D /* DB.h */,
 				1B23E2631D50722700DF719D /* DB.m */,
+				1B23E26E1D51A95200DF719D /* ProductTableViewController.h */,
+				1B23E26F1D51A95200DF719D /* ProductTableViewController.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				TargetAttributes = {
 					1B034ECF1D3F53CB00861049 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 36XLNRENXH;
 					};
 					1B034EE81D3F53CB00861049 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -280,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B034EDB1D3F53CB00861049 /* LoginViewController.m in Sources */,
+				1B23E2701D51A95200DF719D /* ProductTableViewController.m in Sources */,
 				1B23E2641D50722700DF719D /* DB.m in Sources */,
 				1B034ED81D3F53CB00861049 /* AppDelegate.m in Sources */,
 				1B034ED51D3F53CB00861049 /* main.m in Sources */,
@@ -425,10 +432,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Shop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = A.Shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -436,10 +446,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Shop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = A.Shop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
