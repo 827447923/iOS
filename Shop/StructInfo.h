@@ -1,5 +1,5 @@
 //
-//  Product.h
+//  StructInfo.h
 //  Shop
 //
 //  Created by 陈立豪 on 16/8/6.
@@ -8,17 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Product : NSObject{
-    NSString *m_Name;
-    NSString *m_NO;
-    float m_Number;
-    NSString *m_Unit;
-    NSString *m_Type;
-    float m_PurchasePrice;
-    float m_RetailPrice;
-    float m_WholesalePrice;
-    NSString *m_Description;
-    NSString *m_ImagePath;
-}
+
+#ifndef StructInfo_h
+#define StructInfo_h
+
+
+
+@interface Product : NSObject{}
+    @property (strong,nonatomic)NSString *m_Name;
+    @property (strong,nonatomic)NSString *m_NO;
+    @property (assign,nonatomic)float m_Number;
+    @property (strong,nonatomic)NSString *m_Unit;
+    @property (strong,nonatomic)NSString *m_Type;
+    @property (assign,nonatomic)float m_PurchasePrice;
+    @property (assign,nonatomic)float m_RetailPrice;
+    @property (assign,nonatomic)float m_WholesalePrice;
+    @property (strong,nonatomic)NSString *m_Description;
+    @property (strong,nonatomic)NSString *m_ImagePath;
+
 
 @end
+
+
+#endif /* StructInfo_h */

@@ -15,6 +15,7 @@
 		1B034EE31D3F53CB00861049 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B034EE11D3F53CB00861049 /* LaunchScreen.storyboard */; };
 		1B034EEE1D3F53CB00861049 /* ShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B034EED1D3F53CB00861049 /* ShopTests.m */; };
 		1B034EF91D3F53CB00861049 /* ShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B034EF81D3F53CB00861049 /* ShopUITests.m */; };
+		1B1D15121D5F5CA2004459FD /* StructInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1D15111D5F5CA2004459FD /* StructInfo.m */; };
 		1B23E25E1D504E0400DF719D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B23E25D1D504E0400DF719D /* libsqlite3.dylib */; };
 		1B23E2641D50722700DF719D /* DB.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B23E2631D50722700DF719D /* DB.m */; };
 		1B23E2701D51A95200DF719D /* ProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B23E26F1D51A95200DF719D /* ProductTableViewController.m */; };
@@ -55,6 +56,8 @@
 		1B034EF41D3F53CB00861049 /* ShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B034EF81D3F53CB00861049 /* ShopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopUITests.m; sourceTree = "<group>"; };
 		1B034EFA1D3F53CB00861049 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B0D9DFA1D56055D0038771F /* StructInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StructInfo.h; sourceTree = "<group>"; };
+		1B1D15111D5F5CA2004459FD /* StructInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StructInfo.m; sourceTree = "<group>"; };
 		1B23E25D1D504E0400DF719D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
 		1B23E2621D50722700DF719D /* DB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB.h; sourceTree = "<group>"; };
 		1B23E2631D50722700DF719D /* DB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DB.m; sourceTree = "<group>"; };
@@ -62,7 +65,6 @@
 		1B23E26F1D51A95200DF719D /* ProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewController.m; sourceTree = "<group>"; };
 		1B97C2C21D549D6E0010639A /* AddProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProductViewController.h; sourceTree = "<group>"; };
 		1B97C2C31D549D6E0010639A /* AddProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProductViewController.m; sourceTree = "<group>"; };
-		1B97C2C51D54FBBE0010639A /* StructInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StructInfo.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +122,6 @@
 				1B034ED91D3F53CB00861049 /* LoginViewController.h */,
 				1B034EDA1D3F53CB00861049 /* LoginViewController.m */,
 				1B034EDC1D3F53CB00861049 /* Main.storyboard */,
-				1B97C2C51D54FBBE0010639A /* StructInfo.h */,
 				1B034EDF1D3F53CB00861049 /* Assets.xcassets */,
 				1B034EE11D3F53CB00861049 /* LaunchScreen.storyboard */,
 				1B034EE41D3F53CB00861049 /* Info.plist */,
@@ -131,6 +132,8 @@
 				1B23E26F1D51A95200DF719D /* ProductTableViewController.m */,
 				1B97C2C21D549D6E0010639A /* AddProductViewController.h */,
 				1B97C2C31D549D6E0010639A /* AddProductViewController.m */,
+				1B0D9DFA1D56055D0038771F /* StructInfo.h */,
+				1B1D15111D5F5CA2004459FD /* StructInfo.m */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B034EDB1D3F53CB00861049 /* LoginViewController.m in Sources */,
+				1B1D15121D5F5CA2004459FD /* StructInfo.m in Sources */,
 				1B23E2701D51A95200DF719D /* ProductTableViewController.m in Sources */,
 				1B23E2641D50722700DF719D /* DB.m in Sources */,
 				1B034ED81D3F53CB00861049 /* AppDelegate.m in Sources */,

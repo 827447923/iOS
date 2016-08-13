@@ -10,6 +10,8 @@
 #import "DB.h"
 
 
+extern int global_user_id;
+
 
 @interface LoginViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
