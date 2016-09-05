@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Te-ZU-Z2L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Te-ZU-Z2L">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -169,14 +169,6 @@
                                     <action selector="textFieldDoneEditing:" destination="QMZ-L6-J5h" eventType="editingDidEndOnExit" id="tGB-WD-MMJ"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2A-Ip-Hgy">
-                                <rect key="frame" x="121" y="101.5" width="459" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="textFieldDoneEditing:" destination="QMZ-L6-J5h" eventType="editingDidEndOnExit" id="6Qi-5u-taO"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gQ1-7a-olU">
                                 <rect key="frame" x="121" y="135.5" width="459" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -230,7 +222,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jpg-200" translatesAutoresizingMaskIntoConstraints="NO" id="yI9-hu-yIB">
+                            <imageView userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jpg-200" translatesAutoresizingMaskIntoConstraints="NO" id="yI9-hu-yIB">
                                 <rect key="frame" x="121" y="432" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="LeI-Z3-2xz"/>
@@ -276,7 +268,6 @@
                             <constraint firstItem="2aw-bo-qdO" firstAttribute="height" secondItem="a5X-bY-yKR" secondAttribute="height" id="AzC-SW-5tO"/>
                             <constraint firstItem="CPd-Hu-5AB" firstAttribute="centerY" secondItem="wIu-jf-iif" secondAttribute="centerY" id="D0t-VZ-KxI"/>
                             <constraint firstItem="fem-yI-tbr" firstAttribute="trailing" secondItem="80t-LE-zm2" secondAttribute="trailingMargin" id="EaK-cs-XK0"/>
-                            <constraint firstItem="f2A-Ip-Hgy" firstAttribute="leading" secondItem="2aw-bo-qdO" secondAttribute="trailing" constant="8" id="Fwf-Jh-wto"/>
                             <constraint firstItem="XUY-g5-aWO" firstAttribute="leading" secondItem="Fyv-Og-p0V" secondAttribute="trailing" constant="8" id="HDg-C9-Hw5"/>
                             <constraint firstItem="Ql8-Yt-Q1Q" firstAttribute="leading" secondItem="04S-Ub-E7x" secondAttribute="trailing" constant="8" id="L4K-KI-l5h"/>
                             <constraint firstItem="yI9-hu-yIB" firstAttribute="leading" secondItem="i2a-oo-jYs" secondAttribute="trailing" constant="8" id="LaQ-Zd-oD2"/>
@@ -285,7 +276,6 @@
                             <constraint firstItem="yI9-hu-yIB" firstAttribute="top" secondItem="ALT-mV-E18" secondAttribute="bottom" constant="8" id="NgZ-kM-24q"/>
                             <constraint firstItem="wIu-jf-iif" firstAttribute="height" secondItem="a5X-bY-yKR" secondAttribute="height" id="OEl-CK-Isd"/>
                             <constraint firstItem="yI9-hu-yIB" firstAttribute="top" secondItem="i2a-oo-jYs" secondAttribute="top" id="OUV-aG-pMW"/>
-                            <constraint firstItem="f2A-Ip-Hgy" firstAttribute="trailing" secondItem="80t-LE-zm2" secondAttribute="trailingMargin" id="PnL-rI-ZRo"/>
                             <constraint firstItem="ALT-mV-E18" firstAttribute="leading" secondItem="xkb-K0-hhg" secondAttribute="trailing" constant="8" id="R19-2l-uhU"/>
                             <constraint firstItem="04S-Ub-E7x" firstAttribute="height" secondItem="a5X-bY-yKR" secondAttribute="height" id="S5v-8k-Gee"/>
                             <constraint firstItem="i2a-oo-jYs" firstAttribute="height" secondItem="a5X-bY-yKR" secondAttribute="height" id="S8h-rf-CtQ"/>
@@ -326,7 +316,6 @@
                             <constraint firstItem="Ql8-Yt-Q1Q" firstAttribute="centerY" secondItem="04S-Ub-E7x" secondAttribute="centerY" id="vcl-9U-qZP"/>
                             <constraint firstItem="ALT-mV-E18" firstAttribute="trailing" secondItem="80t-LE-zm2" secondAttribute="trailingMargin" id="w0a-5H-Bfd"/>
                             <constraint firstItem="i2a-oo-jYs" firstAttribute="top" secondItem="xkb-K0-hhg" secondAttribute="bottom" constant="67" id="x2n-I6-wSi"/>
-                            <constraint firstItem="f2A-Ip-Hgy" firstAttribute="centerY" secondItem="2aw-bo-qdO" secondAttribute="centerY" id="xQ7-OV-Dpt"/>
                             <constraint firstItem="fp4-7V-kIn" firstAttribute="width" secondItem="a5X-bY-yKR" secondAttribute="width" id="zCM-h9-mtA"/>
                             <constraint firstItem="X6l-ZJ-sJf" firstAttribute="leading" secondItem="WA1-oS-epv" secondAttribute="trailing" constant="8" id="zdD-wJ-GRf"/>
                         </constraints>
@@ -368,6 +357,15 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="drC-at-wPQ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BX2-4J-l3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="f2A-Ip-Hgy">
+                    <rect key="frame" x="0.0" y="0.0" width="459" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <connections>
+                        <action selector="textFieldDoneEditing:" destination="QMZ-L6-J5h" eventType="editingDidEndOnExit" id="6Qi-5u-taO"/>
+                    </connections>
+                </textField>
             </objects>
             <point key="canvasLocation" x="1026" y="-514"/>
         </scene>

@@ -5,10 +5,10 @@
 //  Created by 陈立豪 on 16/8/2.
 //  Copyright © 2016年 陈立豪. All rights reserved.
 //
-#import "StructInfo.h"
+
 #import "DB.h"
 #import <sqlite3.h>
-
+#import "StructInfo.h"
 
 extern int global_user_id;
 
