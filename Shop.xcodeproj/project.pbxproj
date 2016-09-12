@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0152751D7EA0FC0094B9D7 /* AvodingKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0152741D7EA0FC0094B9D7 /* AvodingKeyboardView.m */; };
 		1B034ED51D3F53CB00861049 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B034ED41D3F53CB00861049 /* main.m */; };
 		1B034ED81D3F53CB00861049 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B034ED71D3F53CB00861049 /* AppDelegate.m */; };
 		1B034EDB1D3F53CB00861049 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B034EDA1D3F53CB00861049 /* LoginViewController.m */; };
@@ -41,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0152731D7EA0FC0094B9D7 /* AvodingKeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvodingKeyboardView.h; sourceTree = "<group>"; };
+		1B0152741D7EA0FC0094B9D7 /* AvodingKeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvodingKeyboardView.m; sourceTree = "<group>"; };
+		1B0152761D7EB4AA0094B9D7 /* Shop-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Shop-PrefixHeader.pch"; sourceTree = "<group>"; };
 		1B034ED01D3F53CB00861049 /* Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B034ED41D3F53CB00861049 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B034ED61D3F53CB00861049 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -107,6 +111,39 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1B0152771D801C2D0094B9D7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1B034ED91D3F53CB00861049 /* LoginViewController.h */,
+				1B034EDA1D3F53CB00861049 /* LoginViewController.m */,
+				1B23E26E1D51A95200DF719D /* ProductTableViewController.h */,
+				1B23E26F1D51A95200DF719D /* ProductTableViewController.m */,
+				1B97C2C21D549D6E0010639A /* AddProductViewController.h */,
+				1B97C2C31D549D6E0010639A /* AddProductViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1B0152781D801C4B0094B9D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B0D9DFA1D56055D0038771F /* StructInfo.h */,
+				1B1D15111D5F5CA2004459FD /* StructInfo.m */,
+				1B23E2621D50722700DF719D /* DB.h */,
+				1B23E2631D50722700DF719D /* DB.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		1B0152791D801C560094B9D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1B0152731D7EA0FC0094B9D7 /* AvodingKeyboardView.h */,
+				1B0152741D7EA0FC0094B9D7 /* AvodingKeyboardView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		1B034EC71D3F53CB00861049 = {
 			isa = PBXGroup;
 			children = (
@@ -135,21 +172,15 @@
 			children = (
 				1B034ED61D3F53CB00861049 /* AppDelegate.h */,
 				1B034ED71D3F53CB00861049 /* AppDelegate.m */,
-				1B034ED91D3F53CB00861049 /* LoginViewController.h */,
-				1B034EDA1D3F53CB00861049 /* LoginViewController.m */,
 				1B034EDC1D3F53CB00861049 /* Main.storyboard */,
 				1B034EDF1D3F53CB00861049 /* Assets.xcassets */,
 				1B034EE11D3F53CB00861049 /* LaunchScreen.storyboard */,
 				1B034EE41D3F53CB00861049 /* Info.plist */,
+				1B0152761D7EB4AA0094B9D7 /* Shop-PrefixHeader.pch */,
 				1B034ED31D3F53CB00861049 /* Supporting Files */,
-				1B23E2621D50722700DF719D /* DB.h */,
-				1B23E2631D50722700DF719D /* DB.m */,
-				1B23E26E1D51A95200DF719D /* ProductTableViewController.h */,
-				1B23E26F1D51A95200DF719D /* ProductTableViewController.m */,
-				1B97C2C21D549D6E0010639A /* AddProductViewController.h */,
-				1B97C2C31D549D6E0010639A /* AddProductViewController.m */,
-				1B0D9DFA1D56055D0038771F /* StructInfo.h */,
-				1B1D15111D5F5CA2004459FD /* StructInfo.m */,
+				1B0152791D801C560094B9D7 /* View */,
+				1B0152781D801C4B0094B9D7 /* Model */,
+				1B0152771D801C2D0094B9D7 /* Controller */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -374,6 +405,7 @@
 				1B1D15121D5F5CA2004459FD /* StructInfo.m in Sources */,
 				1B23E2701D51A95200DF719D /* ProductTableViewController.m in Sources */,
 				1B23E2641D50722700DF719D /* DB.m in Sources */,
+				1B0152751D7EA0FC0094B9D7 /* AvodingKeyboardView.m in Sources */,
 				1B034ED81D3F53CB00861049 /* AppDelegate.m in Sources */,
 				1B97C2C41D549D6E0010639A /* AddProductViewController.m in Sources */,
 				1B034ED51D3F53CB00861049 /* main.m in Sources */,
@@ -522,6 +554,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Shop/Shop-PrefixHeader.pch";
 				INFOPLIST_FILE = Shop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = A.Shop;
@@ -537,6 +571,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Shop/Shop-PrefixHeader.pch";
 				INFOPLIST_FILE = Shop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = A.Shop;

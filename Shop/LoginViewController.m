@@ -8,18 +8,21 @@
 
 #import "LoginViewController.h"
 #import "DB.h"
+#import "TPKeyboardAvoidingScrollView.h"
+#import "Masonry.h"
 
 
 extern int global_user_id;
 
 
-@interface LoginViewController ()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-
+@interface LoginViewController ()
+@property (strong, nonatomic)  UILabel *nameLabel,*passwordLabel,*logoLabel;
+@property (strong, nonatomic)  UITextField *nameTextField,*passwordTextField;
+@property (strong, nonatomic)  UIButton *loginBtn, *registerBtn;
+@property (strong, nonatomic)  TPKeyboardAvoidingScrollView *view1 ;
 @property (strong,nonatomic) DB *db;
 
-@property (weak,nonatomic) UITextField *activeTextField;
+
 @end
 
 @implementation LoginViewController
@@ -29,17 +32,22 @@ extern int global_user_id;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _nameTextField.delegate = self;
-    _passwordTextField.delegate = self;
     _db = [[DB alloc]init];
     
-    //test
-    _nameTextField.text = @"end";
-    _passwordTextField.text = @"111";
+
+
+    self.view1 = [[TPKeyboardAvoidingScrollView alloc]init];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    }
+    [self.view addSubview:self.view1];
+    self.view1.backgroundColor = UIColorFromRGB(0x98FB98);
+    
+    
+    self.view1.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+    [self.view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.bottom.equalTo(self.view);
+    }];
+    [self configureControls];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -48,19 +56,139 @@ extern int global_user_id;
 }
 
 
+#pragma mark - 添加控件，并进行布局
+-(void) configureControls{
+    CGFloat padding = kScaleFrom_iPhone5_Desgin(10);
+    CGFloat controlHeight = kScaleFrom_iPhone5_Desgin(28);
+    
+    
+    self.logoLabel=({
+        UILabel *label = [[UILabel alloc]init];
+        label.text = @"test";
+        label.textAlignment = NSTextAlignmentCenter;
+        label.adjustsFontSizeToFitWidth = YES;
+        label.font = [UIFont fontWithName:@"ArialRoundedMTBold" size:60];
+        label;
+    });
+    
+    self.nameLabel = ({
+        UILabel *label = [[UILabel alloc]init];
+        label.text = @"用户名：";
+        label.textAlignment = NSTextAlignmentRight;
+        label;
+    });
+    self.passwordLabel = ({
+        UILabel *label = [[UILabel alloc]init];
+        label.text = @"密码：";
+        label.textAlignment = NSTextAlignmentRight;
+        label;
+    });
 
-#pragma mark - 点击Done或者空白处隐藏键盘
-- (IBAction)textFieldDoneEditing:(id)sender {
-    [sender resignFirstResponder];
+    
+    
+    self.passwordTextField=({
+        UITextField *textField = [[UITextField alloc]init];
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.layer.cornerRadius = controlHeight/2;
+        textField.placeholder = @"请输入密码";
+        textField.clearButtonMode = YES;
+        textField.secureTextEntry = YES;
+        textField;
+    });
+    
+    self.nameTextField=({
+        UITextField *textField = [[UITextField alloc]init];
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.layer.cornerRadius = controlHeight/2;
+        textField.clearButtonMode = YES;
+        textField.placeholder = @"请输入用户名";
+        textField;
+    });
+    
+    //button
+    UIColor *darkColor = UIColorFromRGB(0x28303b);
+    CGFloat buttonWidth = kScreen_Width * 0.4;
+    CGFloat buttonHeight = kScaleFrom_iPhone5_Desgin(38);
+    self.loginBtn=({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button addTarget:self action:@selector(Login) forControlEvents:UIControlEventTouchUpInside];
+        
+        button.backgroundColor = [UIColor clearColor];
+        button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+        [button setTitleColor:darkColor forState:UIControlStateNormal];
+        [button setTitle:@"登录" forState:UIControlStateNormal];
+        
+        button.layer.masksToBounds = YES;
+        button.layer.cornerRadius = buttonHeight/2;
+        button.layer.borderWidth = 1.0;
+        button.layer.borderColor = darkColor.CGColor;
+        button;
+    });
+    self.registerBtn=({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button addTarget:self action:@selector(registerBtnPressed) forControlEvents:UIControlEventTouchUpInside];
+        
+        button.backgroundColor = darkColor;
+        button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [button setTitle:@"注册" forState:UIControlStateNormal];
+        
+        button.layer.masksToBounds = YES;
+        button.layer.cornerRadius = buttonHeight/2;
+        button;
+    });
+    
+    [self.view1 addSubview:self.logoLabel];
+    [self.view1 addSubview:self.nameLabel];
+    [self.view1 addSubview:self.passwordLabel];
+    [self.view1 addSubview:self.nameTextField];
+    [self.view1 addSubview:self.passwordTextField];
+    [self.view1 addSubview:self.loginBtn];
+    [self.view1 addSubview:self.registerBtn];
+    
+
+    [self.logoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreen_Width*0.6, kScreen_Width*0.3));
+        make.left.equalTo(self.view1.mas_left).offset(kScreen_Width*0.2);
+        make.top.equalTo(self.view1.mas_top).offset(kScreen_Height*0.2);
+    }];
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreen_Width*0.2, controlHeight));
+        make.left.equalTo(self.view1.mas_left).offset(padding);
+        make.top.equalTo(self.view1.mas_top).offset(kScreen_Height*0.7);
+    }];
+    [self.passwordLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreen_Width*0.2, controlHeight));
+        make.left.equalTo(self.view1.mas_left).offset(padding);
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(padding);
+    }];
+    [self.nameTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreen_Width*0.7, controlHeight));
+        make.left.equalTo(self.nameLabel.mas_right).offset(padding);
+        make.centerY.equalTo(self.nameLabel.mas_centerY);
+    }];
+    [self.passwordTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreen_Width*0.7, controlHeight));
+        make.left.equalTo(self.passwordLabel.mas_right).offset(padding);
+        make.centerY.equalTo(self.passwordLabel.mas_centerY);
+    }];
+    [self.loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreen_Width/2-2*padding, buttonHeight));
+        make.left.equalTo(self.view1.mas_left).offset(padding);
+        make.top.equalTo(self.passwordLabel.mas_bottom).offset(10);
+    }];
+    
+    [self.registerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreen_Width/2-2*padding, buttonHeight));
+        make.left.equalTo(self.loginBtn.mas_right).offset(padding*2);
+        //make.right.equalTo(self.view1);
+        make.top.equalTo(self.passwordLabel.mas_bottom).offset(10);
+    }];
 }
 
-- (IBAction)backgroundTap:(id)sender {
-    [_nameTextField resignFirstResponder];
-    [_passwordTextField resignFirstResponder];
-}
 
 #pragma mark - 按钮功能
-- (IBAction)registerBtnPressed:(UIButton *)sender {
+- (void)registerBtnPressed{
     NSString *account = [_nameTextField text];
     NSString *psw = [_passwordTextField text];
     if([_db registerWithAccount:account Password:psw] !=YES){
@@ -77,7 +205,7 @@ extern int global_user_id;
     }
 }
 
-- (IBAction)Login:(UIButton *)sender {
+- (void)Login{
     NSString *account = [_nameTextField text];
     NSString *psw = [_passwordTextField text];
     if([_db LoginWithAccount:account Password:psw] !=YES){
@@ -108,79 +236,9 @@ extern int global_user_id;
     }
 }
 
-/*
--(void)switchViewFromViewController:(UIViewController*)fromVC toViewController:(UIViewController*)toVC
-{
-    if(fromVC != nil){
-        [fromVC willMoveToParentViewController:nil];
-        [fromVC.view removeFromSuperview];
-        [fromVC removeFromParentViewController];
-    }
-    if(toVC != nil){
-        [self addChildViewController:toVC];
-        [self.view insertSubview:toVC.view atIndex:0];
-        [toVC didMoveToParentViewController:self];
-    }
-}
- */
 
-#pragma mark - 防止被键盘遮挡
-//开始编辑输入框的时候，软键盘出现，执行此事件
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    //记录已经激活的TextView
-    _activeTextField = textField;
-    
-//    CGRect frame = textField.frame;
-//    int offset = frame.origin.y + frame.size.height     - (self.view.frame.size.height - 216.0-36.0);//键盘高度216或252
-//    
-//    NSTimeInterval animationDuration = 0.30f;
-//    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-//    [UIView setAnimationDuration:animationDuration];
-//    
-//    //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
-//    if(offset > 0)
-//        self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
-//    
-//    [UIView commitAnimations];
-}
-
-
-//输入框编辑完成以后，将视图恢复到原始状态
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    _activeTextField = nil;
-    
-//    [UIView animateWithDuration:0.3f animations:^{
-//    self.view.frame =CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-//    }];
-}
-
-
-// keyboard出现，发出通知
-
--(void)keyboardWillShow:(NSNotification*)notification
-{
-    //获取键盘高度
-    CGFloat kbHeight = [[[notification userInfo]objectForKey:UIKeyboardFrameBeginUserInfoKey]CGRectValue].size.height;
-    //计算文本框底部到键盘顶端的距离
-    int offset = _activeTextField.frame.origin.y+_activeTextField.frame.size.height - (self.view.frame.size.height-kbHeight);
-    //如果offset大于0，即文本框被键盘隐藏，将整个view上移
-    if(offset>0){
-        //获取键盘上升动画的时间
-    double duration = [[[notification userInfo]objectForKey:UIKeyboardAnimationDurationUserInfoKey]doubleValue];
-    [UIView animateWithDuration:duration animations:^{
-        self.view.frame = CGRectMake(0.0f, -offset, self.view.frame.size.width, self.view.frame.size.height);
-    }];
-    }
-}
-
--(void)keyboardWillHide:(NSNotification*)notification
-{
-    double duration = [[[notification userInfo]objectForKey:UIKeyboardAnimationDurationUserInfoKey]doubleValue];
-    [UIView animateWithDuration:duration animations:^{
-        self.view.frame = CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
-    }];
-}
+//-(UIInterfaceOrientationMask)supportedInterfaceOrientations{
+//    return UIInterfaceOrientationMaskPortrait;
+//}
 
 @end

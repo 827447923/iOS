@@ -10,7 +10,7 @@
 
 
 static NSString *productCellIdentifier = @"ProductCellIdentifier";
-static NSString *operateProductCellIdentifier = @"OprateProductCellIdentifier";
+static NSString *operateProductCellIdentifier = @"OperateProductCellIdentifier";
 @implementation ProductTableViewController
 
 
@@ -23,6 +23,7 @@ static NSString *operateProductCellIdentifier = @"OprateProductCellIdentifier";
 
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
