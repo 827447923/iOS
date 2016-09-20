@@ -15,6 +15,7 @@
 
 
 @interface Product : NSObject{}
+    @property (assign,nonatomic)NSInteger id;
     @property (strong,nonatomic)NSString *m_Name;
     @property (strong,nonatomic)NSString *m_NO;
     @property (assign,nonatomic)float m_Number;

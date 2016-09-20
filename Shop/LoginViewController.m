@@ -6,8 +6,11 @@
 //  Copyright © 2016年 陈立豪. All rights reserved.
 //
 
+
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 #import "DB.h"
+#import "DB+Login.h"
 #import "TPKeyboardAvoidingScrollView.h"
 #import "Masonry.h"
 
@@ -32,7 +35,7 @@ extern int global_user_id;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _db = [[DB alloc]init];
+    _db = [DB shareDB];
     
 
 
@@ -102,6 +105,10 @@ extern int global_user_id;
         textField.layer.cornerRadius = controlHeight/2;
         textField.clearButtonMode = YES;
         textField.placeholder = @"请输入用户名";
+        NSString *name = [[NSUserDefaults standardUserDefaults]objectForKey:@"account"];
+        if(name){
+            textField.text = name;
+        }
         textField;
     });
     
@@ -215,24 +222,7 @@ extern int global_user_id;
         [self presentViewController:alert animated:YES completion:nil];
     }
     else{
-
-        UITabBarController *homeController = [self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
-//        [UIView beginAnimations:@"View Flip" context:NULL];
-//        [UIView setAnimationDuration:0.4];
-//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
-        homeController.view.frame = self.view.frame;
-        //需要有父对象
-        //[self switchViewFromViewController:self toViewController:homeController];
-        
-        //需要有父对象
-        //[self transitionFromViewController:self toViewController:homeController duration:1 options:UIViewAnimationOptionTransitionCurlUp animations:nil completion:nil];
-        //设置动画
-        homeController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        //使用模态弹出方法切换控制器
-        [self presentViewController:homeController animated:YES completion:nil];
-
-       // [UIView commitAnimations];
+        [((AppDelegate*)[UIApplication sharedApplication].delegate) setupHomeViewController];
     }
 }
 

@@ -9,7 +9,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class FMDatabase,UIImage;
 @interface DB : NSObject
--(BOOL)LoginWithAccount:(NSString*) account Password:(NSString*)psw;
--(BOOL)registerWithAccount:(NSString*)account Password:(NSString*)psw;
+@property(strong,nonatomic) FMDatabase *fmDB;
+
++(DB*)shareDB;
+-(NSString*)dataFilePath:(NSString*)fileName;
+-(BOOL)isTableExists:(NSString*)tableName;
+-(BOOL)CreateProductTable:(int)id;
 @end

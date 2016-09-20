@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -41,5 +42,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+-(void)setupLoginViewController{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self.window setRootViewController:loginVC];
+}
+-(void)setupHomeViewController{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UITabBarController *homeVC = [storyboard instantiateViewControllerWithIdentifier:@"Home"];
+    homeVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.window setRootViewController:homeVC];
+}
+
 
 @end
